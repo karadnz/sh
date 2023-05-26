@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:58:10 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:58:11 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 19:28:56 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ int	ft_atoi2(const char *nptr, long *nbr)
 		return (-1);
 	while (ft_isdigit(*nptr))
 	{
-		*nbr
-		
-		 = 10 * *nbr + (*nptr - '0');
+		*nbr = 10 * *nbr + (*nptr - '0');
 		if (*nbr > 2147483647 && sign == 1)
 			return (-1);
 		if (*nbr > 2147483648 && sign == -1)

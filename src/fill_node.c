@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_node.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:38:54 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:38:54 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 19:30:47 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,14 @@ static t_list	*stop_fill(t_list *cmds, char **args, char **temp)
 //cat temp | grep asd | wc >outf
 //cat, file, |, grep, asd, |, wc, >, outf
 //echo asdf sadfa sdfasdf asdf afd | echo asdffg asdgdg >sdfds
+//cmds[1]; //last node
+//temp[0]; //trimsiz args
 t_list	*fill_nodes(char **args, int i)
 {
 	t_list	*cmds[2];
 	char	**temp[2];
 
-	cmds[0] = NULL; 
-	//cmds[1]; //last
-	
-	//temp[0]; //trimsiz args
+	cmds[0] = NULL;
 	temp[1] = get_trimmed(args);
 	while (args[++i])
 	{

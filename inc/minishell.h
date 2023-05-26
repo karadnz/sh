@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:37:47 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 19:02:28 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:27:02 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@
 
 typedef struct s_prompt
 {
-	t_list	*cmds; //echo, asdf, asdf,asdf | grep asd
+	t_list	*cmds;
 	char	**envp;
 }			t_prompt;
 
+//node
 typedef struct s_mini
 {
-	char	**full_cmd; //echo, asdf, asdf,asdf 
-	char	*full_path; // /bin/echo
+	char	**full_cmd;
+	char	*full_path;
 	int		infile;
 	int		outfile;
 }			t_mini;
@@ -56,7 +57,6 @@ enum	e_mini_error
 	IS_DIR = 12,
 	NOT_DIR = 13
 };
-
 
 /* Handle executing */
 int		builtin(t_prompt *prompt, t_list *cmd, int *is_exit, int n);
@@ -124,7 +124,8 @@ void	*check_to_fork(t_prompt *prompt, t_list *cmd, int fd[2]);
 /* child icinde execve  */
 void	child_builtin(t_prompt *prompt, t_mini *n, int l, t_list *cmd);
 
-/* command PATH icindeki dir lerde var mi diye kontrol eder ve command in full pathini dondurur */
+/* command PATH icindeki dir lerde var mi diye kontrol eder ve 
+command in full pathini dondurur */
 void	get_cmd(t_prompt *prompt, t_list *start, char **split_path, char *path);
 
 /* expand env */

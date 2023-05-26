@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_params.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:39:45 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:39:46 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 19:31:38 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ t_mini	*get_outfile2(t_mini *node, char **args, int *i)
 	return (node);
 }
 
-
 t_mini	*get_infile1(t_mini *node, char **args, int *i)
 {
 	char	*nl;
@@ -118,8 +117,6 @@ t_mini	*get_infile1(t_mini *node, char **args, int *i)
 	}
 	return (node);
 }
-
-
 
 //herdoc
 t_mini	*get_infile2(t_mini *node, char **args, int *i)

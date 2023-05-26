@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:39:23 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:39:24 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 19:31:21 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static char	*find_command(char **env_path, char *cmd, char *full_path)
 	return (full_path);
 }
 
-//full_cmd[0] absolute path la verilmis bakar verilmemisse PATH degiskeninden yerini bulup full_path e atar
+//full_cmd[0] absolute path la verilmis mi bakar 
+//verilmemisse PATH degiskeninden yerini bulup full_path e atar
 static DIR	*cmd_checks(t_prompt *prompt, t_list *cmd, char ***s, char *path)
 {
 	t_mini	*n;
