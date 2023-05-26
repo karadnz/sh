@@ -6,7 +6,7 @@
 #    By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/26 16:15:07 by mkaraden          #+#    #+#              #
-#    Updated: 2023/05/26 20:37:37 by mkaraden         ###   ########.fr        #
+#    Updated: 2023/05/26 20:40:13 by mkaraden         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ NAME = $(BIN_DIR)/$(BIN)
 
 SRC = main/main.c execute/builtins.c parse/ft_strtrim_all.c execute/exec.c			\
 	  parse/fill_node.c parse/get_params.c parse/ft_splitcmd.c				\
-	  parse/expand.c main/heredoc.c error.c main/env.c 		\
+	  parse/expand.c main/heredoc.c utils/error.c main/env.c 		\
 	  gnl/get_next_line.c gnl/get_next_line_utils.c main/prompt.c	\
-	  parse/ft_cmdsubsplit.c signal.c parse/parse_args.c execute/get_cmd.c
+	  parse/ft_cmdsubsplit.c utils/signal.c parse/parse_args.c execute/get_cmd.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
