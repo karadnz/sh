@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:37:47 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 17:46:42 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:02:28 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_prompt
 typedef struct s_mini
 {
 	char	**full_cmd; //echo, asdf, asdf,asdf 
-	char	*full_path;
+	char	*full_path; // /bin/echo
 	int		infile;
 	int		outfile;
 }			t_mini;
@@ -58,7 +58,7 @@ enum	e_mini_error
 };
 
 
-/* Handles all builtin functions */
+/* Handle executing */
 int		builtin(t_prompt *prompt, t_list *cmd, int *is_exit, int n);
 
 /* full_cmd ilk elemani builtin mi diye kontrol eder */
@@ -85,7 +85,7 @@ int		mini_unset(t_prompt *prompt);
 /* exit builtin */
 int		mini_exit(t_list *cmd, int *is_exit);
 
-/* Splits command string into manageable matrix to store & exec commands */
+/* splitcmd and parse */
 void	*check_args(char *line, t_prompt *prompt);
 
 /* ft_split bosluk tirnaklari dikkate alarak  */
@@ -94,13 +94,13 @@ char	**ft_splitcmd(char const *line, char *set);
 /* ft_split <|> tirnaklari dikkate alarak */
 char	**ft_cmdsubsplit(char const *s, char *set);
 
-/* Strtrim from all needed quotes in s1 */
+/* son haldeki tirnaklari siler */
 char	*ft_strtrim_all(char const *s1, int squote, int dquote);
 
 /* cmds i doldurur */
 t_list	*fill_nodes(char **args, int i);
 
-/* Opens a file to a file descriptor with the adequate open flags */
+/* gelen flaglere gore dosyayi acar ve fd dondurur */
 int		get_fd(int oldfd, char *path, int flags[2]);
 
 /* open outfule > */
@@ -115,18 +115,14 @@ t_mini	*get_infile1(t_mini *node, char **args, int *i);
 /* open heredoc << */
 t_mini	*get_infile2(t_mini *node, char **args, int *i);
 
-/* non-builtin execve */
+/* non-builtin execve, sonraki nodeun infileini pipein read endi yapar */
 void	*exec_cmd(t_prompt *prompt, t_list *cmd);
 
-/* Checks if conditions are met to perform a fork */
+/* gerekliyse forkla  */
 void	*check_to_fork(t_prompt *prompt, t_list *cmd, int fd[2]);
 
 /* child icinde execve  */
 void	child_builtin(t_prompt *prompt, t_mini *n, int l, t_list *cmd);
-
-
-/* Executes a non-builtin command according to the info on our list */
-int		exec_builtin(t_prompt *prompt, int (*func)(t_prompt *));
 
 /* command PATH icindeki dir lerde var mi diye kontrol eder ve command in full pathini dondurur */
 void	get_cmd(t_prompt *prompt, t_list *start, char **split_path, char *path);
@@ -157,8 +153,5 @@ void	free_content(void *content);
 
 /* Function to handle SIGINT signals for main process */
 void	handle_sigint(int sig);
-
-/* Function to handle SIGINT signals for child process */
-void	handle_sigint_child(int sig);
 
 #endif

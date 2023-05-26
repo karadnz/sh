@@ -3,15 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_matrix_replace_in.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:59:49 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:59:50 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 18:38:57 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
+/* insert small to big at n index
+big[0] = ("zero");
+big[1] = ("one");
+big[2] = ("two");
+big[3] = ("three");
+
+small[0] = ("apple");
+small[1] = ("banana");
+
+big = ft_matrix_replace_in(&big, small, 2);
+
+big[0] = ("zero");
+big[1] = ("one");
+big[2] = ("apple");
+big[3] = ("banana");
+big[4] = ("three");
+*/
 char	**ft_matrix_replace_in(char ***big, char **small, int n)
 {
 	char	**aux;

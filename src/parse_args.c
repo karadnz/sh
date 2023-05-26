@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:40:05 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 16:57:44 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:44:40 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 extern int	g_status;
 
-//env expand
-static char	**split_all(char **args, t_prompt *prompt) //SOR
+//env expand, split <|>
+//line = 			echo asdf sdaf| grep a
+//splitted_cmd = 	echo, asdf, sdaf|, grep, a
+//subsplit = 		sdaf|
+//return =			echo, asdf, sdaf, |, grep, a
+static char	**split_all(char **args, t_prompt *prompt)
 {
 	char	**subsplit;
 	int		i;
@@ -72,7 +76,7 @@ void	*check_args(char *line, t_prompt *prompt)
 	}
 	if (line[0] != '\0')
 		add_history(line);
-	splitted_cmd = ft_splitcmd(line, " "); //SOR
+	splitted_cmd = ft_splitcmd(line, " ");
 	free(line);
 	if (!splitted_cmd)
 	{
