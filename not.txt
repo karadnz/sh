@@ -1,0 +1,29 @@
+Bakilacak
+-----------------------
+execve argv
+minigetpid = child olsutrup bi eksigini pid olarak aliyor
+path yoksa otomatik path ekliyor
+get_user whoami calisitiriyor onun yerine $USR dan alinabilir
+var aux
+
+if (!is_exit && g_status == 13)
+		g_status = 0;
+	if (g_status > 255)
+		g_status = g_status / 255;
+neden
+
+
+
+
+
+
+
+
+Hata
+-------------------------------
+
+
+
+Not 
+------------------------------------
+$_ en son komutun en son argumani
