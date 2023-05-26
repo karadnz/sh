@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:39:59 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:16:02 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:46:45 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern int	g_status;
 
-static t_prompt	init_vars(t_prompt prompt, char *str) //CHANGE
+static t_prompt	init_vars(t_prompt prompt, char *str)
 {
 	char	*num;
 
@@ -29,7 +29,7 @@ static t_prompt	init_vars(t_prompt prompt, char *str) //CHANGE
 	free(str);
 	prompt.envp = mini_setenv("SHLVL", num, prompt.envp, 5);
 	free(num);
-	str = mini_getenv("PATH", prompt.envp, 4); //SIL
+	str = mini_getenv("PATH", prompt.envp, 4);
 	if (!str)
 		prompt.envp = mini_setenv("PATH", \
 		"/usr/local/sbin:/usr/local/bin:/usr/bin:/bin", prompt.envp, 4);
@@ -38,7 +38,7 @@ static t_prompt	init_vars(t_prompt prompt, char *str) //CHANGE
 }
 
 //copy and update env vars
-static t_prompt	init_prompt(char **envp)//CHANGE ARGV
+static t_prompt	init_prompt(char **envp)
 {
 	t_prompt	prompt;
 	char		*str;

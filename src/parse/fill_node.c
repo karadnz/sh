@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:38:54 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:25:47 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:48:04 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static t_mini	*get_params(t_mini *node, char **a[2], int *i)
 			node = get_outfile1(node, a[1], i);
 		else if (a[0][*i][0] == '<' && a[0][*i + 1] && \
 			a[0][*i + 1][0] == '<')
-			node = get_infile2(node, a[1], i); //SOR
+			node = get_infile2(node, a[1], i);
 		else if (a[0][*i][0] == '<')
 			node = get_infile1(node, a[1], i);
 		else if (a[0][*i][0] != '|')
@@ -88,7 +88,6 @@ static t_list	*stop_fill(t_list *cmds, char **args, char **temp)
 	return (NULL);
 }
 
-
 //cat temp | grep asd | wc >outf
 //cat, file, |, grep, asd, |, wc, >, outf
 //echo asdf sadfa sdfasdf asdf afd | echo asdffg asdgdg >sdfds
@@ -112,9 +111,9 @@ t_list	*fill_nodes(char **args, int i)
 		}
 		temp[0] = args;
 		cmds[1]->content = get_params(cmds[1]->content, temp, &i);
-		if (i < 0) //error
+		if (i < 0)
 			return (stop_fill(cmds[0], args, temp[1]));
-		if (!args[i]) //SOR
+		if (!args[i])
 			break ;
 	}
 	ft_free_matrix(&temp[1]);

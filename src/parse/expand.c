@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:38:48 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:25:44 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:47:27 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern int	g_status;
 
-char	*expand_path(char *str, int i, int quotes[2], char *var) //SIL
+char	*expand_path(char *str, int i, int quotes[2], char *var)
 {
 	char	*path;
 	char	*aux;
@@ -75,10 +75,10 @@ static char	*get_substr_var(char *str, int i, t_prompt *prompt)
 //str = 			"dfdfg$USER  $SHLV df"
 //str = 			"mkaraden $SHLVL sdf"
 //
-char	*expand_vars(char *str, int i, int quotes[2], t_prompt *prompt) //SOR
+char	*expand_vars(char *str, int i, int quotes[2], t_prompt *prompt)
 {
-	quotes[0] = 0; // sq
-	quotes[1] = 0; //dq
+	quotes[0] = 0;
+	quotes[1] = 0;
 	while (str && str[++i])
 	{
 		quotes[0] = (quotes[0] + (!quotes[1] && str[i] == '\'')) % 2;

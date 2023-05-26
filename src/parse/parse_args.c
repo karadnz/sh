@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:40:05 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:26:03 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:49:05 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	*parse_args(char **args, t_prompt *prompt)
 	int	i;
 
 	is_exit = 0;
-	prompt->cmds = fill_nodes(split_all(args, prompt), -1); //SOR
+	prompt->cmds = fill_nodes(split_all(args, prompt), -1);
 	if (!prompt->cmds)
 		return (prompt);
 	i = ft_lstsize(prompt->cmds);
@@ -81,9 +81,9 @@ void	*check_args(char *line, t_prompt *prompt)
 	if (!splitted_cmd)
 	{
 		mini_perror(QUOTE, NULL, 1);
-		return (""); //ptr 0 olmadigi icin mainde breaklemez
+		return ("");
 	}	
-	prompt = parse_args(splitted_cmd, prompt); //execve de hata olursa ptr 0 olacak??
+	prompt = parse_args(splitted_cmd, prompt);
 	if (prompt && prompt->cmds)
 		ft_lstclear(&prompt->cmds, free_content);
 	return (prompt);

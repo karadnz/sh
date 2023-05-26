@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:38:15 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:25:13 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:45:30 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	builtin(t_prompt *prompt, t_list *cmd, int *is_exit, int n)
 	while (cmd)
 	{
 		a = ((t_mini *)cmd->content)->full_cmd;
-		n = 0; //len of command
+		n = 0;
 		if (a)
 			n = ft_strlen(*a);
 		if (a && !ft_strncmp(*a, "exit", n) && n == 4)
@@ -34,8 +34,8 @@ int	builtin(t_prompt *prompt, t_list *cmd, int *is_exit, int n)
 			g_status = mini_unset(prompt);
 		else
 		{
-			signal(SIGINT, SIG_IGN);  //?? ctrl c
-			signal(SIGQUIT, SIG_IGN); //?? ctrl /
+			signal(SIGINT, SIG_IGN);
+			signal(SIGQUIT, SIG_IGN);
 			exec_cmd(prompt, cmd);
 		}
 		cmd = cmd->next;

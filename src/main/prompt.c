@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:40:10 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:21:47 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:46:59 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*get_home(t_prompt prompt)
 	return (pwd);
 }
 
-static char	*get_user(t_prompt prompt) //CHANGE
+static char	*get_user(t_prompt prompt)
 {
 	char	*user;
 	char	*color;

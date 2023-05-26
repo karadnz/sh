@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:40:16 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:39:56 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:41:35 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	g_status;
 
-void	handle_sigint(int sig) //SOR
+void	handle_sigint(int sig)
 {
 	if (sig == SIGINT)
 	{

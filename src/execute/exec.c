@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:38:41 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:25:23 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:45:46 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ extern int	g_status;
 
 void	child_builtin(t_prompt *prompt, t_mini *n, int l, t_list *cmd)
 {
-	signal(SIGINT, SIG_DFL); //no handler
+	signal(SIGINT, SIG_DFL);
 	signal(SIGQUIT, SIG_DFL);
 	if (!is_builtin(n) && n->full_cmd)
 		execve(n->full_path, n->full_cmd, prompt->envp);

@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:39:23 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:25:27 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:46:21 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	get_cmd(t_prompt *prompt, t_list *cmd, char **s, char *path)
 	t_mini	*n;
 	DIR		*dir;
 
-	n = cmd->content; //content de t_mini var
+	n = cmd->content;
 	dir = cmd_checks(prompt, cmd, &s, path);
 	if (!is_builtin(n) && n && n->full_cmd && dir)
 		mini_perror(IS_DIR, *n->full_cmd, 126);
@@ -96,13 +96,13 @@ void	*exec_cmd(t_prompt *prompt, t_list *cmd)
 	int		fd[2];
 
 	get_cmd(prompt, cmd, NULL, NULL);
-	if (pipe(fd) == -1) //PIPE
+	if (pipe(fd) == -1)
 		return (mini_perror(PIPERR, NULL, 1));
 	if (!check_to_fork(prompt, cmd, fd))
 		return (NULL);
 	close(fd[WRITE_END]);
 	if (cmd->next && !((t_mini *)cmd->next->content)->infile)
-		((t_mini *)cmd->next->content)->infile = fd[READ_END]; //PIPE
+		((t_mini *)cmd->next->content)->infile = fd[READ_END];
 	else
 		close(fd[READ_END]);
 	if (((t_mini *)cmd->content)->infile > 2)

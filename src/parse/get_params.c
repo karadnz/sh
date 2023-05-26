@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:39:45 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 20:26:00 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:48:47 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,18 @@ int	get_fd(int oldfd, char *path, int flags[2])
 		mini_perror(NPERM, path, 126);
 	else if (flags[0] && access(path, W_OK) == -1 && access(path, F_OK) == 0)
 		mini_perror(NPERM, path, 126);
-	if (flags[0] && flags[1]) //append
+	if (flags[0] && flags[1])
 		fd = open(path, O_CREAT | O_WRONLY | O_APPEND, 0666);
-	else if (flags[0] && !flags[1]) //out
+	else if (flags[0] && !flags[1])
 		fd = open(path, O_CREAT | O_WRONLY | O_TRUNC, 0666);
-	else if (!flags[0] && oldfd != -1) //read
+	else if (!flags[0] && oldfd != -1)
 		fd = open(path, O_RDONLY);
 	else
 		fd = oldfd;
 	return (fd);
 }
 
+// //> dan sonra arg yoksa
 t_mini	*get_outfile1(t_mini *node, char **args, int *i)
 {
 	char	*nl;
@@ -60,10 +61,10 @@ t_mini	*get_outfile1(t_mini *node, char **args, int *i)
 		if (node->outfile != -1)
 		{
 			ft_putendl_fd(nl, 2);
-			g_status = 2; //> dan sonra arg yoksa
+			g_status = 2;
 		}
 		else
-			g_status = 1; //dosya hata
+			g_status = 1;
 	}
 	return (node);
 }
