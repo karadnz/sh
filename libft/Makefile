@@ -5,13 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/07 10:28:33 by aperez-b          #+#    #+#              #
-#    Updated: 2023/05/26 19:14:10 by mkaraden         ###   ########.fr        #
+#    Created: 2023/05/26 20:26:57 by mkaraden          #+#    #+#              #
+#    Updated: 2023/05/26 20:26:58 by mkaraden         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-# Make variables
 CC = gcc 
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs

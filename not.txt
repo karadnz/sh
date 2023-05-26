@@ -1,10 +1,5 @@
 Bakilacak
 -----------------------
-execve argv
-minigetpid = child olsutrup bi eksigini pid olarak aliyor
-path yoksa otomatik path ekliyor
-get_user whoami calisitiriyor onun yerine $USR dan alinabilir
-var aux
 
 if (!is_exit && g_status == 13)
 		g_status = 0;
@@ -16,18 +11,3 @@ check_to_fork daki
 err 126
 err 127
 
-
-
-
-
-
-
-
-Hata
--------------------------------
-
-
-
-Not 
-------------------------------------
-$_ en son komutun en son argumani

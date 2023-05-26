@@ -6,11 +6,11 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:40:05 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 18:44:40 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:26:03 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minishell.h"
+#include "../../inc/minishell.h"
 
 extern int	g_status;
 

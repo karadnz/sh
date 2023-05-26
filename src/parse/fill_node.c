@@ -6,11 +6,11 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:38:54 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 19:30:47 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:25:47 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minishell.h"
+#include "../../inc/minishell.h"
 
 static t_mini	*mini_init(void)
 {

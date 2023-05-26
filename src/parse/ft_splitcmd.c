@@ -6,11 +6,11 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:39:08 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 16:59:45 by mkaraden         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:25:53 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minishell.h"
+#include "../../inc/minishell.h"
 
 static int	ft_count_words(const char *s, char *c, int i[2])
 {
