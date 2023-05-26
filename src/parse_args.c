@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:40:05 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:40:06 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 16:57:44 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 extern int	g_status;
 
+//env expand
 static char	**split_all(char **args, t_prompt *prompt) //SOR
 {
 	char	**subsplit;
@@ -83,9 +84,3 @@ void	*check_args(char *line, t_prompt *prompt)
 		ft_lstclear(&prompt->cmds, free_content);
 	return (prompt);
 }
-//	t_mini	*n;
-//if (p && p->cmds)
-	// 	n = p->cmds->content;//SOR BAS SON MU
-	// if (p && p->cmds && n && n->full_cmd && ft_lstsize(p->cmds) == 1)
-	// 	p->envp = mini_setenv("_", n->full_cmd[ft_matrixlen(n->full_cmd) - 1], \
-	// 		p->envp, 1); //SIL

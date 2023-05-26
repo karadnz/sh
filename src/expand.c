@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:38:48 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:38:48 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 16:50:07 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ static char	*get_substr_var(char *str, int i, t_prompt *prompt)
 	aux = ft_substr(str, 0, i - 1);
 	var = mini_getenv(&str[i], prompt->envp, \
 		ft_strchars_i(&str[i], "\"\'$|>< "));
-	if (!var && str[i] == '$')
-		var = ft_itoa(prompt->pid);
-	else if (!var && str[i] == '?')
+	if (!var && str[i] == '?')
 		var = ft_itoa(g_status);
 	path = ft_strjoin(aux, var);
 	free(aux);

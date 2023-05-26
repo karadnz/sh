@@ -12,6 +12,10 @@ if (!is_exit && g_status == 13)
 		g_status = g_status / 255;
 neden
 
+check_to_fork daki
+err 126
+err 127
+
 
 
 

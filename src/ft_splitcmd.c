@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_splitcmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:39:08 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:39:09 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 16:59:45 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**ft_fill_array(char **aux, char const *s, char *set, int i[3])
 	return (aux);
 }
 
-char	**ft_splitcmd(char const *s, char *set)
+char	**ft_splitcmd(char const *line, char *set)
 {
 	char	**aux;
 	int		nwords;
@@ -79,15 +79,15 @@ char	**ft_splitcmd(char const *s, char *set)
 	i[2] = 0;
 	counts[0] = 0;
 	counts[1] = 0;
-	if (!s)
+	if (!line)
 		return (NULL);
-	nwords = ft_count_words(s, set, counts);
+	nwords = ft_count_words(line, set, counts);
 	if (nwords == -1)
 		return (NULL);
 	aux = malloc((nwords + 1) * sizeof(char *));
 	if (aux == NULL)
 		return (NULL);
-	aux = ft_fill_array(aux, s, set, i);
+	aux = ft_fill_array(aux, line, set, i);
 	aux[nwords] = NULL;
 	return (aux);
 }

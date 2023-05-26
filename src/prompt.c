@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:40:10 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:40:11 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 16:52:51 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 extern int	g_status;
 
-
-//get pwd??
+//get pwd
 static char	*get_home(t_prompt prompt)
 {
 	char	*temp;
@@ -44,38 +43,6 @@ static char	*get_home(t_prompt prompt)
 	return (pwd);
 }
 
-//user tek * olabilir
-//whoami yerine $USR olabilir
-//renk tek olabilir
-/*static char	*get_user2(t_prompt prompt)
-{
-	char	**user;
-	char	*temp;
-	char	*temp2;
-
-	user = NULL;
-	temp2 = NULL;
-	exec_custom(&user, "/usr/bin/whoami", "whoami", prompt.envp);
-	if (!user)
-		user = ft_extend_matrix(user, "guest");
-	if (!ft_strncmp(user[0], "root", 4))
-		temp2 = ft_strjoin(NULL, RED);
-	else if ((int)(user[0][0]) % 5 == 0)
-		temp2 = ft_strjoin(NULL, CYAN);
-	else if ((int)(user[0][0]) % 5 == 1)
-		temp2 = ft_strjoin(NULL, GRAY);
-	else if ((int)(user[0][0]) % 5 == 2)
-		temp2 = ft_strjoin(NULL, GREEN);
-	else if ((int)(user[0][0]) % 5 == 3)
-		temp2 = ft_strjoin(NULL, MAGENTA);
-	else
-		temp2 = ft_strjoin(NULL, YELLOW);
-	temp = ft_strjoin(temp2, *user);
-	free(temp2);
-	ft_free_matrix(&user);
-	return (temp);
-}*/
-
 static char	*get_user(t_prompt prompt) //CHANGE
 {
 	char	*user;
@@ -85,7 +52,7 @@ static char	*get_user(t_prompt prompt) //CHANGE
 	user = mini_getenv("USER", prompt.envp, 4);
 	if (!user)
 		user = ft_strdup("guest");
-	color = ft_strdup(GREEN);
+	color = ft_strdup(GRAY);
 	rt = ft_strjoin(color, user);
 	free(color);
 	free(user);

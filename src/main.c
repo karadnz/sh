@@ -3,36 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsenses <hsenses@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:39:59 by hsenses           #+#    #+#             */
-/*   Updated: 2023/05/26 14:40:00 by hsenses          ###   ########.fr       */
+/*   Updated: 2023/05/26 16:50:23 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
 
 extern int	g_status;
-
-static void	mini_getpid(t_prompt *p) //SIL
-{
-	pid_t	pid;
-
-	pid = fork();
-	if (pid < 0)
-	{
-		mini_perror(FORKERR, NULL, 1);
-		ft_free_matrix(&p->envp);
-		exit(1);
-	}
-	if (!pid)
-	{
-		ft_free_matrix(&p->envp);
-		exit(1);
-	}
-	waitpid(pid, NULL, 0);
-	p->pid = pid - 1;
-}
 
 static t_prompt	init_vars(t_prompt prompt, char *str) //CHANGE
 {
@@ -56,11 +36,6 @@ static t_prompt	init_vars(t_prompt prompt, char *str) //CHANGE
 	free(str);
 	return (prompt);
 }
-//static t_prompt	init_vars(t_prompt prompt, char *str, char **argv) //CHANGE
-// str = mini_getenv("_", prompt.envp, 1); //SIL
-	// if (!str)
-	// 	prompt.envp = mini_setenv("_", argv[0], prompt.envp, 1);
-	// free(str);
 
 //copy and update env vars
 static t_prompt	init_prompt(char **envp)//CHANGE ARGV
@@ -72,7 +47,6 @@ static t_prompt	init_prompt(char **envp)//CHANGE ARGV
 	prompt.cmds = NULL;
 	prompt.envp = ft_dup_matrix(envp);
 	g_status = 0;
-	mini_getpid(&prompt);//SIL
 	prompt = init_vars(prompt, str);
 	return (prompt);
 }
